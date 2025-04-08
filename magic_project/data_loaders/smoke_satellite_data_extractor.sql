@@ -1,5 +1,3 @@
--- Docs: https://docs.mage.ai/guides/sql-blocks
--- Docs: https://docs.mage.ai/guides/sql-blocks
 with sensor_satellite_data as (
     select
         sd.sensor_timestamp,
@@ -26,7 +24,12 @@ select
     bright_ti4,
     confidence,
     fire_radiative_power,
-    daynight
+    daynight,
+    -- Creating 'fire_detected' column based on the new condition
+    case 
+        when fire_radiative_power > 2 and sensor_value > 300 and confidence = 'h' then 1
+        else 0
+    end as fire_detected
 from 
     sensor_satellite_data
 where 
