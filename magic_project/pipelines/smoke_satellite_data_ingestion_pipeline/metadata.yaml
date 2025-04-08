@@ -1,0 +1,70 @@
+blocks:
+- all_upstream_blocks_executed: true
+  color: null
+  configuration:
+    data_provider: postgres
+    data_provider_profile: default
+    dbt: {}
+    disable_query_preprocessing: false
+    export_write_policy: append
+    file_path: data_loaders/smoke_satellite_data_extractor.sql
+    file_source:
+      path: data_loaders/smoke_satellite_data_extractor.sql
+    limit: 1000
+    use_raw_sql: true
+  downstream_blocks:
+  - smoke_satellite_data_exporter
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: sql
+  name: smoke_satellite_data_extractor
+  retry_config: null
+  status: executed
+  timeout: null
+  type: data_loader
+  upstream_blocks: []
+  uuid: smoke_satellite_data_extractor
+- all_upstream_blocks_executed: true
+  color: null
+  configuration:
+    data_provider: postgres
+    data_provider_profile: default
+    export_write_policy: append
+  downstream_blocks: []
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: smoke_satellite_data_exporter
+  retry_config: null
+  status: executed
+  timeout: null
+  type: data_exporter
+  upstream_blocks:
+  - smoke_satellite_data_extractor
+  uuid: smoke_satellite_data_exporter
+cache_block_output_in_memory: false
+callbacks: []
+concurrency_config: {}
+conditionals: []
+created_at: '2025-04-08 11:32:03.071850+00:00'
+data_integration: null
+description: null
+executor_config: {}
+executor_count: 1
+executor_type: null
+extensions: {}
+name: smoke_satellite_data_ingestion_pipeline
+notification_config: {}
+remote_variables_dir: null
+retry_config: {}
+run_pipeline_in_one_process: false
+settings:
+  triggers: null
+spark_config: {}
+tags: []
+type: python
+uuid: smoke_satellite_data_ingestion_pipeline
+variables_dir: /home/src/mage_data/magic_project
+widgets: []
