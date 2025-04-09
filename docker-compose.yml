@@ -1,5 +1,6 @@
 version: '3'
 services:
+  # Service for the Mage AI App
   magic:
     image: mageai/mageai:latest
     command: mage start ${PROJECT_NAME}
@@ -18,7 +19,10 @@ services:
     restart: on-failure:5
     depends_on:
       - postgres
+    networks:
+      - fire-network
 
+  # Postgres service for both Mage AI & Fire Prediction app
   postgres:
     image: postgres:latest
     environment:
@@ -30,7 +34,12 @@ services:
     volumes:
       - pgdata:/var/lib/postgresql/data
     restart: always
-
+    networks:
+      - fire-network
 
 volumes:
   pgdata:
+
+networks:
+  fire-network:
+    external: true  # Referencing the pre-existing 'fire-network'

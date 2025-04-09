@@ -1,0 +1,3 @@
+{"operation": "create", "resource": {"type": "pipeline", "uuid": "fire_detection_ingestion_pipeline"}, "timestamp": 1744111509, "user": null}
+{"operation": "create", "resource": {"type": "pipeline", "uuid": "smoke_sensor_data_ingestion_pipeline"}, "timestamp": 1744111924, "user": null}
+{"operation": "create", "resource": {"type": "pipeline", "uuid": "sensor_data_ingestion_pipeline"}, "timestamp": 1744112094, "user": null}
