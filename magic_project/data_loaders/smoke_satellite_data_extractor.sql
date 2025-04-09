@@ -13,7 +13,7 @@ with sensor_satellite_data as (
     from
         sensor_data sd
     left join modis_data md 
-        on sd.sensor_timestamp between md.modis_timestamp - interval '1 minute' and md.modis_timestamp + interval '1 minute' -- you can adjust this interval
+        on sd.sensor_timestamp between md.modis_timestamp - interval '2 minute' and md.modis_timestamp + interval '2 minute' -- you can adjust this interval
 )
 select 
     sensor_timestamp,
@@ -27,7 +27,7 @@ select
     daynight,
     -- Creating 'fire_detected' column based on the new condition
     case 
-        when fire_radiative_power > 2 and sensor_value > 300 and confidence = 'h' then 1
+        when fire_radiative_power > 2 or sensor_value > 300 then 1
         else 0
     end as fire_detected
 from 

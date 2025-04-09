@@ -9,7 +9,7 @@ import numpy as np
 @custom
 def load_data(*args, **kwargs):
     start_time = pd.to_datetime('2025-04-08 00:00:00')
-    end_time = pd.to_datetime('2025-04-08 06:00:00')
+    end_time = pd.to_datetime('2025-04-09 00:00:00')
     timestamps = pd.date_range(start=start_time, end=end_time, freq='T')
     np.random.seed(42)
     sensor_values = np.random.randint(0, 1024, size=len(timestamps))

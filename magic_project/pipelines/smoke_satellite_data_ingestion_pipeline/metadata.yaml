@@ -20,12 +20,12 @@ blocks:
   language: sql
   name: smoke_satellite_data_extractor
   retry_config: null
-  status: updated
+  status: executed
   timeout: null
   type: data_loader
   upstream_blocks: []
   uuid: smoke_satellite_data_extractor
-- all_upstream_blocks_executed: false
+- all_upstream_blocks_executed: true
   color: null
   configuration:
     data_provider: postgres
